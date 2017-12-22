@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Las Inscripciones del Usuario";
+}
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h2>Las inscripciones del usuario</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nro. de la Inscripción</th>
+                    <th>ID de Usuario</th>
+                    <th>ID de Curso</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var inscripcion in ViewBag.Inscriptions)
+                {
+                    <tr>
+                        <td>@inscripcion.ID</td>
+                        <td>@inscripcion.UserID</td>
+                        <td>@inscripcion.DescriptionCourse</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <p>@Html.ActionLink("Volver", "Index", "Home")</p>
+    </div>
+</div>
+

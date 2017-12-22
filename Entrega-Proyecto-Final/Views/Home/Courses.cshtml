@@ -1,0 +1,39 @@
+﻿@using Entrega_Proyecto_Final.Models
+@model List<Entrega_Proyecto_Final.Models.Course>
+
+@{
+    ViewBag.Title = "Courses";
+}
+<!-- Page Content -->
+<div class="container">
+    <!-- Introduction Row -->
+    <h1 class="my-4">
+        Academy
+        <small>Cursos</small>
+    </h1>
+    <p>Academy se dedica a realizar cursos de calidad para empresas, gobierno y publico en general para dar educación, trabajo e inclusión a la sociedad</p>
+
+    <div class="panel panel-default">
+
+        @foreach (var item in Model)
+        {
+            <div class="panel-heading accordeon-violeta">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#@item.ID"> @item.DescriptionCourse </a>
+                </h4>
+            </div>
+            <div id="@item.ID" class="panel-collapse collapse">
+                @foreach (var modulo in item.Modules)
+                {
+                    <div class="panel-body">
+                        @modulo.DescriptionModule
+                    </div>
+                }
+            </div>
+            <br />
+        }
+        
+    </div>
+
+</div>
+<!-- /.container -->

@@ -1,0 +1,39 @@
+﻿@model Entrega_Proyecto_Final.Models.User
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Datos del Usuario</h2>
+
+<div>
+    <h4>Detalles</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Mail):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mail)
+        </dd>
+
+        <dt>
+            Nombre completo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompleteName)
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Ver sus inscripciones", "UserInscriptions", new { controller = "User", idUser = Model.ID})
+</p>
+
+
+<p>
+    @Html.ActionLink("Volver a Inicio", "Index")
+</p>
