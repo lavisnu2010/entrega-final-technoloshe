@@ -35,7 +35,6 @@ namespace Entrega_Proyecto_Final.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         CourseID = c.Int(nullable: false),
                         UserID = c.Int(nullable: false),
-                        DescriptionCourse = c.String(),
                     })
                 .PrimaryKey(t => t.ID);
             

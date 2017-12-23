@@ -12,118 +12,28 @@
     </h1>
     <p>Academy se dedica a realizar cursos de calidad para empresas, gobierno y publico en general para dar educación, trabajo e inclusión a la sociedad</p>
 
-  <!-- Content Row -->
-    <div class="row">
-        <div class="col-lg-4 mb-4">
-            <div class="card h-100">
-                <h3 class="card-header">Programa de Sustentabilidad</h3>
-                <div class="card-body">
-                    <div class="display-4">2500 ARS</div>
-                    <div class="font-italic">por mes</div>
-                </div>
-                <ul class="list-group list-group-flush">
-                <li class="list-group-item"><input type="checkbox">Selección, Payroll, Generalista</li>
-                <li class="list-group-item"><input type="checkbox">Transparencia y Rendición de Cuentas</li>
-                <li class="list-group-item"><input type="checkbox">Sustentabilidad y Responsabilidad Social</li>
-                <li class="list-group-item"><input type="checkbox">Analista de Reporte y Control</li>
-                <li class="list-group-item">
-                 <a href="#" class="btn btn-primary">Inscribirme!</a>
-    </li>
-</ul>
-            </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-            <div class="card card-outline-primary h-100">
-                <h3 class="card-header">Programa Marketing Digital</h3>
-                <div class="card-body">
-                    <div class="display-4">2500 ARS</div>
-                    <div class="font-italic">por mes</div>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><input type="checkbox">Marketing Digital</li>
-                    <li class="list-group-item"><input type="checkbox">Comercial, Liderazgo y Marketing Personal</li>
-                    <li class="list-group-item"><input type="checkbox">Eventos, Prensa y Relaciones Públicas</li>
-                    <li class="list-group-item"><input type="checkbox">Emprendedores y Networking</li>
-                    <li class="list-group-item">
-                        <a href="#" class="btn btn-primary">Inscribirme!</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-            <div class="card h-100">
-                <h3 class="card-header">Programa de Tecnología</h3>
-                <div class="card-body">
-                    <div class="display-4">2500 ARS</div>
-                    <div class="font-italic">por mes</div>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><input type="checkbox">Introducción a Programación</li>
-                    <li class="list-group-item"><input type="checkbox">Analista Funcional</li>
-                    <li class="list-group-item"><input type="checkbox">Business Intelligence</li>
-                    <li class="list-group-item"><input type="checkbox">Big Data</li>
-                    <li class="list-group-item">
-                        <a href="#" class="btn btn-primary">Inscribirme!</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- /.row -->
     <!-- Content Row -->
     <div class="row">
-        <div class="col-lg-4 mb-4">
+        <div class="col-lg-12 mb-12">
             <div class="card h-100">
-                <h3 class="card-header">Programa de Diversidad</h3>
+                <h3 class="card-header">Lista de Cursos</h3>
                 <div class="card-body">
-                    <div class="display-4">2500 ARS</div>
+                    <div class="display-4">2500 ARS - Precio general por Curso</div>
                     <div class="font-italic">por mes</div>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><input type="checkbox">DD.HH, Genero y Prevención de la Violencia</li>
-                    <li class="list-group-item"><input type="checkbox">Derecho Procesal y Victimología</li>
-                    <li class="list-group-item"><input type="checkbox">Bullying en las escuelas</li>
-                    <li class="list-group-item">
-                        <a href="#" class="btn btn-primary">Inscribirme!</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-            <div class="card card-outline-primary h-100">
-                <h3 class="card-header">Programa de Idiomas</h3>
-                <div class="card-body">
-                    <div class="display-4">2500 ARS</div>
-                    <div class="font-italic">por mes</div>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><input type="checkbox">Ingles</li>
-                    <li class="list-group-item"><input type="checkbox">Francés</li>
-                    <li class="list-group-item"><input type="checkbox">Español para Extranjeros</li>
-                    <li class="list-group-item">
-                        <a href="#" class="btn btn-primary">Inscribirme!</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-            <div class="card h-100">
-                <h3 class="card-header">Programa de Experiencias</h3>
-                <div class="card-body">
-                    <div class="display-4">2500 ARS</div>
-                    <div class="font-italic">por mes</div>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><input type="checkbox">Programa de Moda, Compra y Belleza</li>
-                    <li class="list-group-item"><input type="checkbox">Programa de Lifestyle: Comidas y Bebidas</li>
-                    <li class="list-group-item"><input type="checkbox">Programa de Arte y Viajes Extraordinarios</li>
-                    <li class="list-group-item">
-                        <a href="#" class="btn btn-primary">Inscribirme!</a>
-                    </li>
-                </ul>
+                <form action="@Url.Action("AddInscription", "User")" method="post">
+                    <ul class="list-group list-group-flush">
+                        @foreach (var course in ViewBag.Courses)
+                        {
+                            <li class="list-group-item"><input type="radio" name="idCourse" value="@course.ID">@course.DescriptionCourse</li>
+                        }
+                    </ul>
+                    <input type="submit" value="Inscribirme!">
+                    <input type='hidden' name='idUser' value='@ViewBag.UserID' />
+                </form>
+               
             </div>
         </div>
     </div>
-    <!-- /.row -->
+    <!-- /.container -->
 </div>
-<!-- /.container -->
